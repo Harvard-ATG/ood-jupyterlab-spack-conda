@@ -1,0 +1,66 @@
+# Batch Connect app configuration file
+#
+# @note Used to define the submitted cluster, title, description, and
+#   hard-coded/user-defined attributes that make up this Batch Connect app.
+---
+
+# **MUST** set cluster id here that matches cluster configuration file located
+# under /etc/ood/config/clusters.d/*.yml
+# @example Use the Owens cluster at Ohio Supercomputer Center
+#     cluster: "owens"
+cluster: "*"
+
+# Define attribute values that aren't meant to be modified by the user within
+# the Dashboard form
+attributes:
+  # Set the corresponding modules that need to be loaded for Jupyter to run
+  #
+  # @note It is called within the batch job as `module load <modules>` if
+  #   defined
+  # @example Do not load any modules
+  #     modules: ""
+  # @example Using default python module
+  #     modules: "python"
+  # @example Using specific python module
+  #     modules: "python/3.5"
+  # @example Using combination of modules
+  #     modules: "python/3.5 cuda/8.0.44"
+  environment:
+    label: "Spack environment"
+    value: "jupyter"
+    required: true
+    help: "Spack environment to use to load jupyter. This environment must include `py-jupyterlab` and exist in the spack install location specified. The default value for a generic configuration is \"jupyter\""
+  
+  spack:
+    label: "Spack installation location"
+    value: "/shared/spack"
+    required: true
+    help: "The location of a spack installation folder to use. The default location is \"/shared/spack\". If using a custom location, use the absolute path to the root spack folder, containing `bin`, `etc`, `lib`, `opt`, `share`, and `var` folders."
+
+  custom_num_cores:
+    widget: "number_field"
+    label: "Number of CPUs"
+    value: 1
+    min: 1
+    max: 4
+    step: 1
+
+  # Any extra command line arguments to feed to the `jupyter notebook ...`
+  # command that launches the Jupyter notebook within the batch job
+  extra_jupyter_args: ""
+
+# All of the attributes that make up the Dashboard form (in respective order),
+# and made available to the submit configuration file and the template ERB
+# files
+#
+# @note You typically do not need to modify this unless you want to add a new
+#   configurable value
+# @note If an attribute listed below is hard-coded above in the `attributes`
+#   option, then it will not appear in the form page that the user sees in the
+#   Dashboard
+form:
+  - environment
+  - spack
+  - extra_jupyter_args
+  - bc_num_hours
+  - custom_num_cores

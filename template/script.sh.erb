@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Benchmark info
+echo "TIMING - Starting main script at: $(date)"
+
+# Validate home directory and set it to what it should be
+echo "original HOME=$HOME"
+echo "user=$(id -nu)"
+export HOME="/shared/home/$(id -nu)"
+echo "new HOME=$HOME"
+
+# Set working directory to home directory
+cd "${HOME}"
+
+# Load spack
+. <%= context.spack %>/share/spack/setup-env.sh
+echo "TIMING = Activated spack install"
+
+#
+# Start Jupyter Notebook Server
+#
+
+# Load the require environment
+echo "Loading environment: <%= context.environment %>"
+spack env activate <%= context.environment %>
+echo "TIMING - Spack environment loaded at $(date)"
+
+# List loaded modules
+spack find
+
+# Benchmark info
+echo "TIMING - Starting jupyter at: $(date)"
+
+# Launch the Jupyter Lab Server
+set -x
+jupyter lab --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>

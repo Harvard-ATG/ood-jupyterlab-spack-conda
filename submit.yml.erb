@@ -1,0 +1,26 @@
+# Job submission configuration file
+#
+---
+
+#
+# Configure the content of the job script for the batch job here
+# @see http://www.rubydoc.info/gems/ood_core/OodCore/BatchConnect/Template
+#
+batch_connect:
+  template: "basic"
+
+  # This configuration was suggested by Jianjun as a fix for the connection issue:
+  set_host: "host=$(hostname | awk '{print $1}').<%= cluster%>.pcluster"
+  # It's not in the documentation for clusters, it's in the documentation for submit.yml:
+  # https://osc.github.io/ood-documentation/latest/how-tos/app-development/interactive/submit.html
+  # It's possible to set any of these batch connect options for a cluster from that cluster's config file
+  # However, I don't know how to change that in the IAC, since I think that cluster config file is generated somewhere else. Maybe it's in the s3 for persistence, and I can change it there? but then that makes it hard to reproduce.
+
+#
+# Configure the job script submission parameters for the batch job here
+# @see http://www.rubydoc.info/gems/ood_core/OodCore/Job/Script
+#
+script:
+  native:
+    - "--nodes=1"
+    - "--cpus-per-task=<%= custom_num_cores.blank? ? 1 : custom_num_cores.to_i %>"
