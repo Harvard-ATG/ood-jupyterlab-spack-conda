@@ -5,11 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - py-jupyterlab
-  - py-numpy
-  - py-pandas
-  - py-matplotlib
-  - py-scipy
+  - micromamba
   view: true
   concretizer:
     unify: true
