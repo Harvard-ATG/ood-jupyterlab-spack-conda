@@ -8,7 +8,7 @@ spack:
   - miniconda3
   - git
   - lazygit
-  - zsh
+  # - zsh
   - neovim
   - tmux
   - cowsay
