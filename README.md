@@ -13,6 +13,7 @@ This Batch Connect app requires the following software be installed in a locatio
   - The `spack.yaml` file from an environment configured for this app is included in this repo at `spack-environment/conda/spack.yml`.
 - [Conda](https://docs.anaconda.com/miniconda/)
   - A conda environment containing `jupyterlab` and any required python packages.
+  - The `environment.yml` file from a minimal jupyter environment is configured in this repo at `conda-environment/jupyter/environment.yml`.
 
 The default location for the spack installation, spack environment, and conda environment are defined in `form.yml`
 
@@ -23,6 +24,16 @@ The app is set up to allow the use of different spack install locations and diff
 ## Install
 
 This repository should be added to the OnDemand app configuration. By default, this can be found at /var/www/ood/apps/sys.
+
+Additionally, the spack and conda environments need to be installed:
+
+```
+$ JID=$(sbatch --mem=16g -c 8 installSpackEnvironment.sh conda)
+
+$ sbatch --dependency=afterok:$JID --mem=16g -c 8 installCondaEnvironment.sh jupyter
+```
+
+For more details on the spack and conda environment install scripts, keep reading.
 
 ## Spack environment install script
 
@@ -37,9 +48,17 @@ With this script, the install process looks like this:
 
 ## Conda environment install script
 
-The conda environemnt install process can also take some time, so a similar approach is recommended. At a minimum, the following needs to be run:
+The conda environment install process can also take some time, so a similar approach is recommended. The assumption is that all conda environments will share the same `conda` spack environment, although this is not strictly required.
+
+To install the conda environment manually:
 
 ```
 spack env activate -p conda
 conda env create --file conda-environment/jupyter/environment.yml
+```
+
+Or run the utility script (preferably with `sbatch`):
+
+```
+./installCondaEnvironment.sh cs109a
 ```
