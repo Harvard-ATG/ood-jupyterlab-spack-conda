@@ -5,11 +5,14 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - py-jupyterlab
-  - py-numpy
-  - py-pandas
-  - py-matplotlib
-  - py-scipy
+  - miniconda3
+  - git
+  - lazygit
+  # - zsh
+  - neovim
+  - tmux
+  - cowsay
+  - figlet
   view: true
   concretizer:
     unify: true

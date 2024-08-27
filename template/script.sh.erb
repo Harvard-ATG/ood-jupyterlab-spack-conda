@@ -31,6 +31,10 @@ spack find
 # Benchmark info
 echo "TIMING - Starting jupyter at: $(date)"
 
+# Activate conda environment
+eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
+conda activate <%= context.conda %>
+
 # Launch the Jupyter Lab Server
 set -x
 jupyter lab --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>
