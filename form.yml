@@ -13,35 +13,14 @@ cluster: "*"
 # Define attribute values that aren't meant to be modified by the user within
 # the Dashboard form
 attributes:
-  # Set the corresponding modules that need to be loaded for Jupyter to run
-  #
-  # @note It is called within the batch job as `module load <modules>` if
-  #   defined
-  # @example Do not load any modules
-  #     modules: ""
-  # @example Using default python module
-  #     modules: "python"
-  # @example Using specific python module
-  #     modules: "python/3.5"
-  # @example Using combination of modules
-  #     modules: "python/3.5 cuda/8.0.44"
   environment:
-    label: "Spack environment"
-    value: "conda"
-    required: true
-    help: "Spack environment to use to load conda. The default is \"conda\". This spack environment must include \"miniconda3\" or equivalent."
-  
-  spack:
-    label: "Spack installation location"
-    value: "/shared/spack"
-    required: true
-    help: "The location of a spack installation folder to use. The default location is \"/shared/spack\". If using a custom location, use the absolute path to the root spack folder, containing `bin`, `etc`, `lib`, `opt`, `share`, and `var` folders."
-
-  conda:
-    label: "Conda environment"
-    value: "jupyter"
-    required: true
-    help: "The conda environment to use. The default is \"jupyter\". The conda environment must include \"jupyterlab\"."
+    widget: "radio_button"
+    value: "course"
+    help: |
+      Choose the environment used to launch Jupyter Lab. The "Course" environment is managed by the teaching staff and has the latest dependencies, while the "Global" environment is managed at the system level and provides the initial set of dependencies.
+    options:
+      - ["Course (course managed)", "course"]
+      - ["Global (system managed)", "global"]
 
   custom_num_cores:
     widget: "number_field"
@@ -49,6 +28,14 @@ attributes:
     value: 1
     min: 1
     max: 4
+    step: 1
+
+  custom_num_hours:
+    label: "Number of hours"
+    widget: number_field
+    value: 1
+    min: 1
+    max: 168 # one week
     step: 1
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
@@ -66,8 +53,6 @@ attributes:
 #   Dashboard
 form:
   - environment
-  - spack
-  - conda
   - extra_jupyter_args
-  - bc_num_hours
+  - custom_num_hours
   - custom_num_cores

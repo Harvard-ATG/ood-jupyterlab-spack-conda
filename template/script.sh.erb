@@ -12,17 +12,30 @@ echo "new HOME=$HOME"
 # Set working directory to home directory
 cd "${HOME}"
 
+# Select spack and conda environment based on form selection
+echo "Environment: <%= context.environment %>"
+if [[ "<%= context.environment %>" == "course" ]]; then
+    spack_root="/shared/courseSharedFolders/137799outer/137799/spack"
+    spack_environment="cs109a"
+    conda_environment="cs109a"
+else
+    spack_root="/shared/spack"
+    spack_environment="cs109a"
+    conda_environment="cs109a"
+fi
+
 # Load spack
-. <%= context.spack %>/share/spack/setup-env.sh
+echo "Spack root: $spack_root"
+. $spack_root/share/spack/setup-env.sh
 echo "TIMING = Activated spack install"
 
 #
 # Start Jupyter Notebook Server
 #
 
-# Load the require environment
-echo "Loading environment: <%= context.environment %>"
-spack env activate <%= context.environment %>
+# Load the required environment
+echo "Loading spack environment: $spack_environment"
+spack env activate $spack_environment
 echo "TIMING - Spack environment loaded at $(date)"
 
 # List loaded modules
@@ -32,8 +45,9 @@ spack find
 echo "TIMING - Starting jupyter at: $(date)"
 
 # Activate conda environment
+echo "Loading conda environment: $conda_environment"
 eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
-conda activate <%= context.conda %>
+conda activate $conda_environment
 
 # Launch the Jupyter Lab Server
 set -x
