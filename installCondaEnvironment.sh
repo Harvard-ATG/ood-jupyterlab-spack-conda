@@ -5,7 +5,7 @@
 . /shared/spack/share/spack/setup-env.sh
 
 # Activate conda environment
-spack env activate conda
+spack env activate cs109a
 
 # Create conda environment and install python packages
-conda env create --file conda-environment/$1/environment.yml
+conda env create --file conda-environment/cs109a/environment.yml
