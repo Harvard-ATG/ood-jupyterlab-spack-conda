@@ -10,6 +10,10 @@
 #     cluster: "owens"
 cluster: "*"
 
+# Do not cache the application form
+# The intent is to revert to the default Number of CPUs and Hours each time.
+cacheable: false
+
 # Define attribute values that aren't meant to be modified by the user within
 # the Dashboard form
 attributes:
@@ -31,9 +35,9 @@ attributes:
     step: 1
 
   bc_num_hours:
-    value: 1
+    value: 2
     min: 1
-    max: 168
+    max: 168  # 7 days max
     step: 1
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
