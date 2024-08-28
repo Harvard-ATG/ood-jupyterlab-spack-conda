@@ -30,12 +30,10 @@ attributes:
     max: 4
     step: 1
 
-  custom_num_hours:
-    label: "Number of hours"
-    widget: number_field
+  bc_num_hours:
     value: 1
     min: 1
-    max: 168 # one week
+    max: 168
     step: 1
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
@@ -54,5 +52,5 @@ attributes:
 form:
   - environment
   - extra_jupyter_args
-  - custom_num_hours
+  - bc_num_hours
   - custom_num_cores
