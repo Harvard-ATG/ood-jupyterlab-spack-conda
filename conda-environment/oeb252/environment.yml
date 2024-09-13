@@ -4,12 +4,13 @@ channels:
 - conda-forge
 
 dependencies:
-- jupyterlab
-- numpy
-- pandas
-- matplotlib
-- scipy
 - pip
 - python>=3.10
-- requests
-- msprime
+- pip:
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - requests
+  - msprime
