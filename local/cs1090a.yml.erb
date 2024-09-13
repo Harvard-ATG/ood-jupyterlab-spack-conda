@@ -49,23 +49,11 @@ attributes:
   #     modules: "python/3.5"
   # @example Using combination of modules
   #     modules: "python/3.5 cuda/8.0.44"
-  environment:
-    label: "Spack environment"
-    value: "cs109a"
-    required: true
-    help: "Spack environment to use to load conda. The default is \"conda\". This spack environment must include \"miniconda3\" or equivalent."
+  environment: "cs109a"
   
-  spack:
-    label: "Spack installation location"
-    value: "/shared/spack"
-    required: true
-    help: "The location of a spack installation folder to use. The default location is \"/shared/spack\". If using a custom location, use the absolute path to the root spack folder, containing `bin`, `etc`, `lib`, `opt`, `share`, and `var` folders."
+  spack: "/shared/spack"
 
-  conda:
-    label: "Conda environment"
-    value: "cs109a"
-    required: true
-    help: "The conda environment to use. The default is \"jupyter\". The conda environment must include \"jupyterlab\"."
+  conda:"cs109a"
 
   custom_num_cores:
     widget: "number_field"
