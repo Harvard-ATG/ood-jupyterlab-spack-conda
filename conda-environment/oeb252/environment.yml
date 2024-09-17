@@ -1,4 +1,4 @@
-name: jupyter
+name: oeb252
 
 channels:
 - conda-forge
