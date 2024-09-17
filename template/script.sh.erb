@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Benchmark info
-echo "TIMING - Starting main script at: $(date)"
+echo "TIMING - Starting main script at: $(date -Iseconds)"
 
 # Validate home directory and set it to what it should be
 echo "original HOME=$HOME"
@@ -27,7 +27,7 @@ fi
 # Load spack
 echo "Spack root: $spack_root"
 . $spack_root/share/spack/setup-env.sh
-echo "TIMING = Activated spack install"
+echo "TIMING - Activated spack install at $(date -Iseconds)"
 
 #
 # Start Jupyter Notebook Server
@@ -36,13 +36,13 @@ echo "TIMING = Activated spack install"
 # Load the required environment
 echo "Loading spack environment: $spack_environment"
 spack env activate $spack_environment
-echo "TIMING - Spack environment loaded at $(date)"
+echo "TIMING - Spack environment loaded at $(date -Iseconds)"
 
 # List loaded modules
 spack find
 
 # Benchmark info
-echo "TIMING - Starting jupyter at: $(date)"
+echo "TIMING - Starting jupyter at: $(date -Iseconds)"
 
 # Activate conda environment
 echo "Loading conda environment: $conda_environment"
