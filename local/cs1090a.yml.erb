@@ -5,7 +5,9 @@
 <%-
 userGroups = OodSupport::User.new.groups.sort_by(&:id).map(&:name).flat_map{ |str| str.scan(/^canvas(\d+)-\d+/) }.flatten
 enabledGroups = [
-  "135510", # HUIT Open OnDemand Testing
+  # Cannot have other enabled groups if a course installation is in use
+  # This is because the course installation uses the course shared folder, 
+  # which is not accessible to users outside of that course.
   "137799"  # COMPSCI 1090A: Data Science 1: Introduction to Data Science
 ]
 
