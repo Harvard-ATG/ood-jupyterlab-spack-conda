@@ -33,22 +33,24 @@ end
 cluster: "<%= cluster %>"
 
 title: "Jupyter Lab - OEB 252"
+description: |
+  This app will launch a Jupyter Notebook server on one or more nodes. This 
+  configuration uses [Spack](https://spack.io/) to load a 
+  [Conda](https://anaconda.org/anaconda/conda) environment using 
+  [Miniconda](https://docs.anaconda.com/miniconda/) to load Jupyter Lab, and 
+  was built for the course OEB 252. <br/>The app launches outside of a
+  container, so it has access to slurm commands, but since the app is running as
+  a slurm job, the `srun` command will use the resources of the current job,
+  rather than starting a new job. That is, unless you first run an `salloc`
+  command to allocate a new interactive session.
 
 # Define attribute values that aren't meant to be modified by the user within
 # the Dashboard form
 attributes:
-  # Set the corresponding modules that need to be loaded for Jupyter to run
-  #
-  # @note It is called within the batch job as `module load <modules>` if
-  #   defined
-  # @example Do not load any modules
-  #     modules: ""
-  # @example Using default python module
-  #     modules: "python"
-  # @example Using specific python module
-  #     modules: "python/3.5"
-  # @example Using combination of modules
-  #     modules: "python/3.5 cuda/8.0.44"
+  course: "141194"
+  spack: "oeb125"
+  conda: "oeb125"
+  environment: "global"
 
   environment: "oeb252"
   
