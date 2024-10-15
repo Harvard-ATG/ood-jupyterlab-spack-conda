@@ -13,6 +13,7 @@ spack:
   - tmux
   - cowsay
   - figlet
+  - py-fastai
   view: true
   concretizer:
     unify: true
