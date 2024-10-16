@@ -1,0 +1,29 @@
+name: gov99r
+
+channels:
+- conda-forge
+
+dependencies:
+# - asyncio # comes with python standard library
+- aiohttp
+- beautifulsoup4
+- jupyterlab
+- lxml
+- matplotlib
+- networkx
+- numpy
+- pandas
+- pillow
+- pip
+- python>=3.10
+- requests
+- scipy
+- scikit-learn
+- seaborn
+- selenium
+- statsmodels
+- pytorch-cpu
+- pip:
+  - nbopen
+  - otter-grader
+  - fastai
