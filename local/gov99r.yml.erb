@@ -49,7 +49,7 @@ description: |
 attributes:
   course: "138195"
   spack: "gov99r"
-  conda: "gov99r"
+  conda: "conda"
   environment: "global"
 
   custom_num_cores:
@@ -60,7 +60,7 @@ attributes:
     max: 8
     step: 1
   
-  custom_num_ram:
+  memory:
     widget: "number_field"
     label: "Number of RAM"
     value: 1
@@ -88,4 +88,4 @@ form:
   - extra_jupyter_args
   - bc_num_hours
   - custom_num_cores
-  - custom_num_ram
+  - memory
