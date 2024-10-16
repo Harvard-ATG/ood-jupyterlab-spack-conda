@@ -50,15 +50,6 @@ attributes:
     min: 1
     max: 4
     step: 1
-  
-  custom_mem_per_node:
-    widget: "number_field"
-    label: "Number of RAM"
-    value: 2
-    min: 2
-    max: 8
-    step: 2
-    
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
   # command that launches the Jupyter notebook within the batch job
@@ -80,4 +71,3 @@ form:
   - extra_jupyter_args
   - bc_num_hours
   - custom_num_cores
-  - custom_mem_per_node
