@@ -21,6 +21,7 @@ dependencies:
 - tqdm
 - joblib
 - tensorflow
+- ipywidgets
 - pip:
   - gurobipy
   - mosek
