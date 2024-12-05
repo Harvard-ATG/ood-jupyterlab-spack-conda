@@ -1,0 +1,27 @@
+name: apmth91r
+
+channels:
+- conda-forge
+
+dependencies:
+# - asyncio # comes with python standard library
+- aiohttp
+- jupyterlab
+- matplotlib
+- numpy
+- pandas
+- pillow
+- pip
+- python>=3.10
+- scipy
+- scikit-learn
+- seaborn
+- statsmodels
+- pytorch-cpu
+- tqdm
+- joblib
+- tensorflow
+- ipywidgets
+- pip:
+  - gurobipy
+  - mosek
