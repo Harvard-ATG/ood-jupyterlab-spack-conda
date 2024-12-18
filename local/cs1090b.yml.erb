@@ -8,7 +8,7 @@ enabledGroups = [
   # Cannot have other enabled groups if a course installation is in use
   # This is because the course installation uses the course shared folder,
   # which is not accessible to users outside of that course.
-  "137799",  # COMPSCI 1090A: Data Science 1: Introduction to Data Science
+  # "137799",  # COMPSCI 1090A: Data Science 1: Introduction to Data Science
   "135510"
 ]
 
@@ -70,18 +70,19 @@ attributes:
   #    - ["Course (course managed)", "course"]
   #    - ["Global (system managed)", "global"]
 
-  custom_num_cores:
-    widget: "number_field"
-    label: "Number of CPUs"
-    value: 1
-    min: 1
-    max: 4
-    step: 1
+  custom_num_cores: 8
+  # custom_num_cores:
+  #   widget: "number_field"
+  #   label: "Number of CPUs"
+  #   value: 1
+  #   min: 1
+  #   max: 4
+  #   step: 1
 
   bc_num_hours:
     value: 2
     min: 1
-    max: 168  # 7 days max
+    max: 6  # 6 hours max
     step: 1
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
