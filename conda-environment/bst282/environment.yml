@@ -1,0 +1,19 @@
+name: bst282
+
+channels:
+- conda-forge
+- bioconda
+
+dependencies:
+- jupyterlab
+- numpy
+- pandas
+- matplotlib
+- scipy
+- requests
+- pip
+- conda-forge::anndata
+- conda-forge::scanpy
+- bioconda::bwa
+- bioconda::minimap2
+- bioconda::sra-tools
