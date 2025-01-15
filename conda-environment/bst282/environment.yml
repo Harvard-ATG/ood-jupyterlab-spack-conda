@@ -17,3 +17,4 @@ dependencies:
 - bioconda::bwa
 - bioconda::minimap2
 - bioconda::sra-tools
+- bioconda::macs3
