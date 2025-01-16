@@ -17,9 +17,9 @@ This Batch Connect app requires the following software be installed in a locatio
 
 The default location for the spack installation, spack environment, and conda environment are defined in `form.yml`
 
-## Optional Additions
+## User-Controlled Environments
 
-The app is set up to allow the use of different spack install locations and different environment names. That means that if a user has set up their own spack installation, or if a different configuration has been created for their use, that user can change their launch configuration from the app form and use different Python libraries in the same interface.
+The app is set up to allow the use of a user-controlled Python environment, referred to as the "course" environment. This "course" environment uses a global spack install, but is set to use a conda environment created with the `--prefix` option. In our `script.sh.erb`, the path to this environment is determined by the course ID, so other applications will require changing the path to the environment. In our application, we use this to provide the option for course instructors to manage an environment from a shared folder for a course, while still having a Python environment maintained by system administrators as a fallback. If this behavior is not desired, the form can be modified to hard-code a global installation.
 
 ## Install
 
