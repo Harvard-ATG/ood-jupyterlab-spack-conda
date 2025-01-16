@@ -1,0 +1,18 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - miniconda3
+  - star
+  - rsem
+  - salmon
+  - bowtie
+  - hisat2
+  - samtools
+  - bedtools2
+  view: true
+  concretizer:
+    unify: true
