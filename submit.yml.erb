@@ -24,3 +24,4 @@ script:
   native:
     - "--nodes=1"
     - "--cpus-per-task=<%= custom_num_cores.blank? ? 1 : custom_num_cores.to_i %>"
+    - "--gpus-per-node=<%= custom_num_gpus.blank? ? 0 : custom_num_gpus.to_i %>"
