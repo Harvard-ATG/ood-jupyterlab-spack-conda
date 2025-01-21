@@ -10,4 +10,4 @@ spack:
   - lazygit
   view: true
   concretizer:
-    unify: when_possible
+    unify: true
