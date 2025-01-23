@@ -1,0 +1,15 @@
+name: gened1188
+
+channels:
+- conda-forge
+
+dependencies:
+- jupyterlab
+- matplotlib
+- numpy
+- pip
+- python>=3.11
+- scipy
+- scikit-learn
+- pytorch-cpu
+
