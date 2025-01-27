@@ -8,6 +8,7 @@ spack:
   - miniconda3
   - git
   - lazygit
+  - gcc@14.1.0
   view: true
   concretizer:
     unify: true
