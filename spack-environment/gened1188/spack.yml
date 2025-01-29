@@ -4,25 +4,6 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  # compilers:
-  # - compiler:
-  #   spec: gcc@14.1.0
-  #   paths:
-  #     cc: /shared/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/gcc-14.1.0-gk3kwavzxlypmvsju2sswx4tcnefqhdh/gcc
-  #     cxx: /shared/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/gcc-14.1.0-gk3kwavzxlypmvsju2sswx4tcnefqhdh/bin/g++
-  #     f77: /shared/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/gcc-14.1.0-gk3kwavzxlypmvsju2sswx4tcnefqhdh/bin/gfortran
-  #     fc: /shared/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/gcc-14.1.0-gk3kwavzxlypmvsju2sswx4tcnefqhdh/bin/gfortran
-  #   operating_system: amzn
-  #   flags: {}
-  #   target: x86_64
-  #   modules: []
-  #   environment: {}
-  #   extra_rpaths: []    
-
-  # packages:
-  #   all:
-  #     compiler:[gcc@14.1.0]
-
   specs:
   - miniconda3
   - git
