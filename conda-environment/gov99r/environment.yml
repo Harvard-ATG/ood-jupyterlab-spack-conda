@@ -8,6 +8,7 @@ dependencies:
 - aiohttp
 - beautifulsoup4
 - jupyterlab
+- pandoc
 - lxml
 - matplotlib
 - networkx

@@ -9,6 +9,7 @@ dependencies:
     - imageio==2.33.1
     - ipython==8.20.0
     - jupyterlab==4.0.11
+    - pandoc
     - matplotlib==3.8.2
     - nltk==3.8.1
     - numpy==1.26.3
