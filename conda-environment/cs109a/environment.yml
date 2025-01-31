@@ -9,6 +9,7 @@ dependencies:
   - beautifulsoup4
   - imageio
   - jupyterlab
+  - pandoc
   - lxml
   - matplotlib
   - networkx

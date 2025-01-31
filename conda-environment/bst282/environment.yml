@@ -6,6 +6,7 @@ channels:
 
 dependencies:
 - jupyterlab
+- pandoc
 - numpy
 - pandas
 - matplotlib

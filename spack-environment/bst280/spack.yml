@@ -6,6 +6,7 @@ spack:
   # add package specs to the `specs` list
   specs:
   - miniconda3
+  - texlive
   - hdf5
   - openmpi@4.1.1
   view: true
