@@ -34,7 +34,7 @@ dependencies:
       - tensorflow_addons==0.23.0
       - tensorflow_datasets==4.9.4
       - tensorflow_hub==0.16.0
-      - torch==2.2.1 #installed
+      - torch==2.2.1
       - torch_geometric==2.5.2
       - torchvision==0.17.1
       - torchaudio==2.2.1
