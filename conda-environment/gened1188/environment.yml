@@ -8,7 +8,7 @@ dependencies:
 - matplotlib
 - numpy
 - pip
-- python>=3.11
+- python==3.11.9
 - scipy
 - scikit-learn
 - pytorch-cpu
