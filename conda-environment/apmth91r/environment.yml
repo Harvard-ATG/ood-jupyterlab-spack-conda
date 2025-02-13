@@ -22,6 +22,8 @@ dependencies:
 - joblib
 - tensorflow
 - ipywidgets
+- gym
+- stable-baselines3
 - pip:
   - gurobipy
   - mosek
