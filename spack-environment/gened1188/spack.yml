@@ -5,9 +5,10 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - miniconda3
-  - git
-  - lazygit
+    - miniconda3
+    - git
+    - lazygit
+
   view: true
   concretizer:
     unify: true
