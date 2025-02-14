@@ -22,6 +22,9 @@ dependencies:
 - joblib
 - tensorflow
 - ipywidgets
+- gym
+- stable-baselines3
 - pip:
   - gurobipy
   - mosek
+  - shimmy>=2.0
