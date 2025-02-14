@@ -27,3 +27,4 @@ dependencies:
 - pip:
   - gurobipy
   - mosek
+  - shimmy>=2.0
