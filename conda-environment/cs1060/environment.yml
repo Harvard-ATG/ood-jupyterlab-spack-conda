@@ -1,4 +1,4 @@
-name: jupyter
+name: cs1060
 
 channels:
 - conda-forge
