@@ -42,15 +42,15 @@ end
 # under /etc/ood/config/clusters.d/*.yml
 cluster: "<%= cluster %>"
 
-title: "Jupyter Lab - COMPSCI 1060 (GPU)"
+title: "Jupyter Lab - CS 1060 (GPU)"
 description: |
-  This app is configured for GPU access for COMPSCI 1060.
+  This app is configured for GPU access for CS 1060.
 
   This app will launch a Jupyter Notebook server on one or more nodes. This
   configuration uses [Spack](https://spack.io/) to load a
   [Conda](https://anaconda.org/anaconda/conda) environment using
   [Miniconda](https://docs.anaconda.com/miniconda/) to load Jupyter Lab, and
-  was built for the course COMPSCI 1060.<br/><br/>The
+  was built for the course CS 1060.<br/><br/>The
   app launches outside of a container, so it has access to slurm commands, but
   since the app is running as a slurm job, the `srun` command will use the
   resources of the current job, rather than starting a new job. That is, unless
