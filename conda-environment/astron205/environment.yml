@@ -1,0 +1,16 @@
+name: astron205
+
+channels:
+- conda-forge
+
+dependencies:
+- jupyterlab
+- matplotlib
+- numpy
+- pip
+- python>=3.12
+- scipy
+- scikit-learn
+- tensorflow
+- pytorch
+
