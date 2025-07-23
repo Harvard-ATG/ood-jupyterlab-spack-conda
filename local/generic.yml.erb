@@ -23,7 +23,7 @@ else
     # Cannot have other enabled groups if a course installation is in use
     # This is because the course installation uses the course shared folder,
     # which is not accessible to users outside of that course.
-    "150890"  # BST 282: Introduction to Computational Biology and Bioinformatics
+    "135510"
   ]
 
   # Check if the groups that the user is in match any of the courses that should
@@ -40,28 +40,34 @@ end
 
 # **MUST** set cluster id here that matches cluster configuration file located
 # under /etc/ood/config/clusters.d/*.yml
-# @example Use the Owens cluster at Ohio Supercomputer Center
-#     cluster: "owens"
 cluster: "<%= cluster %>"
 
-title: "Jupyter Lab - BST 282"
+title: "Jupyter Lab - Generic"
 description: |
+  This app is not configured for any particular course. It is an example app 
+  with a minimal configuration.
+
   This app will launch a Jupyter Notebook server on one or more nodes. This
   configuration uses [Spack](https://spack.io/) to load a
   [Conda](https://anaconda.org/anaconda/conda) environment using
   [Miniconda](https://docs.anaconda.com/miniconda/) to load Jupyter Lab, and
-  was built for the course BST 282.<br/><br/>The app launches outside of a
-  container, so it has access to slurm commands, but since the app is running as
-  a slurm job, the `srun` command will use the resources of the current job,
-  rather than starting a new job. That is, unless you first run an `salloc`
-  command to allocate a new interactive session.
+  was built for the course CS 1090b (and its cross-listed courses).<br/><br/>The
+  app launches outside of a container, so it has access to slurm commands, but
+  since the app is running as a slurm job, the `srun` command will use the
+  resources of the current job, rather than starting a new job. That is, unless
+  you first run an `salloc` command to allocate a new interactive session.
+
+# Do not cache the application form
+# The intent is to revert to the default Number of CPUs and Hours each time.
+cacheable: false
 
 # Define attribute values that aren't meant to be modified by the user within
 # the Dashboard form
 attributes:
-  course: "150890"
+  course: "135510"
   spack: "conda"
-  conda: "bst282"
+  conda: "jupyter"
+  bc_queue: "general"
   environment:
     widget: "radio_button"
     value: "course"
@@ -74,12 +80,20 @@ attributes:
       - ["Course (course managed)", "course"]
       - ["Global (system managed)", "global"]
 
-  custom_num_cores:
-    widget: "number_field"
-    label: "Number of CPUs"
-    value: 1
+  custom_num_cores: 8
+  custom_num_gpus: 1
+  # custom_num_cores:
+  #   widget: "number_field"
+  #   label: "Number of CPUs"
+  #   value: 1
+  #   min: 1
+  #   max: 4
+  #   step: 1
+
+  bc_num_hours:
+    value: 2
     min: 1
-    max: 4
+    max: 6  # 6 hours max
     step: 1
 
   # Any extra command line arguments to feed to the `jupyter notebook ...`
@@ -100,6 +114,7 @@ form:
   - spack
   - conda
   - environment
+  - bc_queue
   - extra_jupyter_args
   - bc_num_hours
   - custom_num_cores
