@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-this_script=$0
+this_script="template/after.sh"
 
 log() {
     echo -e "[$(date -Iseconds)][${this_script}] $1"

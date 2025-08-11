@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-this_script=$(basename $0)
+this_script="template/script.sh.erb"
 
 log() {
     echo -e "[$(date -Iseconds)][${this_script}] $1"
@@ -9,11 +9,7 @@ log() {
 # Benchmark info
 log "Starting main script"
 
-# Validate home directory and set it to what it should be
-log "original HOME=$HOME"
-log "user=$(id -nu)"
-export HOME="/shared/home/$(id -nu)"
-log "new HOME=$HOME"
+log "HOME=$HOME"
 
 # Set working directory to home directory
 cd "${HOME}"
