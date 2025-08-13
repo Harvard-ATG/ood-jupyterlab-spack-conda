@@ -5,6 +5,8 @@
 # application launch for a course, make a copy of this file in the same folder 
 # and customize the form config to your liking. There are notes along the way 
 # to help you understand what options you can make configurable to users.
+# See the docs page from Open OnDemand for more details:
+# https://osc.github.io/ood-documentation/develop/how-tos/app-development/interactive/form.html
 <%-
 # Specify admin groups by the full name of the group in the production HKey environment.
 adminGroups = [
@@ -70,8 +72,11 @@ description: |
 # The intent is to revert to the default Number of CPUs and Hours each time.
 cacheable: false
 
-# Define attribute values that aren't meant to be modified by the user within
-# the Dashboard form
+# Define attributes that are set up by this configuration. If an attribute is 
+# set up with a static value here, it will be assigned that value in the job, 
+# and will not appear in the form. If the attribute is configured with a widget
+# and/or other options, and it is configured in the form section below, it will
+# appear to users as a configurable option.
 attributes:
   # Canvas course ID, used to reference a course shared folder when a spack 
   # installation in the course shared folder is in use.
