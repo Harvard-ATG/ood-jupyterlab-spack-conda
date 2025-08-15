@@ -81,14 +81,18 @@ attributes:
   # Canvas course ID, used to reference a course shared folder when a spack 
   # installation in the course shared folder is in use.
   course: "135510"
+
   # Spack environment to activate, regardless of which Spack installation is in use.
   spack: "conda"
+
   # Conda environment to activate from inside the Spack environment
   conda: "jupyter"
+
   # Which queue to submit to. Usually `general` is the best choice, unless this 
   # app is configured for a specific EC2 instance type, like an instance type 
   # with GPU resources.
   bc_queue: "general"
+
   # How many times can you say environment before the word loses all meaning?
   # In this case, this form option toggles between using the global Spack 
   # installation and a spack installation in the course shared folder. If the 
@@ -108,6 +112,7 @@ attributes:
 
   # How many GPU GRES resources to include in the job submission.
   custom_num_gpus: 0
+
   # How many CPU cores to include in the slurm job submission
   custom_num_cores:
     widget: "number_field"
