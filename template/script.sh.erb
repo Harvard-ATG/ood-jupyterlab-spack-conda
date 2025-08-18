@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 
-# Benchmark info
-echo "TIMING - Starting main script at: $(date -Iseconds)"
+this_script="template/script.sh.erb"
 
-# Validate home directory and set it to what it should be
-echo "original HOME=$HOME"
-echo "user=$(id -nu)"
-export HOME="/shared/home/$(id -nu)"
-echo "new HOME=$HOME"
+log() {
+    echo -e "[$(date -Iseconds)][${this_script}] $1"
+}
+
+# Benchmark info
+log "Starting main script"
+
+log "HOME=$HOME"
 
 # Set working directory to home directory
 cd "${HOME}"
 
 # Select spack and conda environment based on form selection
-echo "Environment: <%= context.environment %>"
+log "Spack install location directive from form: <%= context.environment %>"
 if [[ "<%= context.environment %>" == "course" ]]; then
     # spack_root="/shared/courseSharedFolders/<%= context.course %>outer/<%= context.course %>/spack"
     spack_root="/shared/spack"
@@ -30,30 +32,31 @@ else
 fi
 
 # Load spack
-echo "Spack root: $spack_root"
+log "Spack root: $spack_root"
 . $spack_root/share/spack/setup-env.sh
-echo "TIMING - Activated spack install at $(date -Iseconds)"
+log "Activated spack install"
 
 #
 # Start Jupyter Notebook Server
 #
 
 # Load the required environment
-echo "Loading spack environment: $spack_environment"
+log "Loading spack environment: $spack_environment"
 spack env activate $spack_environment
-echo "TIMING - Spack environment loaded at $(date -Iseconds)"
+log "Spack environment loaded"
 
 # List loaded modules
 spack find
 
 # Benchmark info
-echo "TIMING - Starting jupyter at: $(date -Iseconds)"
+log "Starting jupyter..."
 
 # Activate conda environment
-echo "Loading conda environment: $conda_environment"
+log "Loading conda environment: $conda_environment"
 set -x
 eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
 conda activate $conda_environment
+set +x
 
 # Launch the Jupyter Lab Server
 jupyter lab --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>
