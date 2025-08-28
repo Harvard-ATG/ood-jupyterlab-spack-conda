@@ -13,4 +13,5 @@ dependencies:
 - pip
 - python>=3.10
 - requests
-- amplpy
+- pip:
+    - amplpy>=0.15.2
