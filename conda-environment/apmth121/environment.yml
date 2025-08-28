@@ -1,0 +1,16 @@
+name: apmth121
+
+channels:
+- conda-forge
+
+dependencies:
+- jupyterlab
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scipy
+- pip
+- python>=3.10
+- requests
+- amplpy
