@@ -15,6 +15,6 @@ dependencies:
 - requests
 - scikit-learn
 - ipywidgets
-- yfinance
 - pip:
   - nba_api
+  - yfinance
