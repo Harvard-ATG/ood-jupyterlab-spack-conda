@@ -12,21 +12,23 @@ dependencies:
   - jupyterlab 
   - lxml 
   - matplotlib>=3.10 
-  - numpy>=2.3 
+  - numpy
   - openpyxl 
   - pandas 
   - pillow 
   - pip 
   - pyarrow 
-  - python>=3.10 
+  - python=3.11 
   - requests 
   - scikit-learn>=1.7 
   - scipy>=1.6 
   - seaborn 
   - selenium 
   - statsmodels
+  - setuptools
+  - wheel
   - pip:
-    - gap-stat
+    - git+https://github.com/alexrkv/gap_statistic.git@fix-no-module-wheel
     - nbopen
     - opencv-python
     - otter-grader>=6.1
