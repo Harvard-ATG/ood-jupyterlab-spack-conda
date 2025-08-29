@@ -25,10 +25,9 @@ dependencies:
   - seaborn 
   - selenium 
   - statsmodels
-  - setuptools
-  - wheel
   - pip:
-    - git+https://github.com/alexrkv/gap_statistic.git@fix-no-module-wheel
+    # - gap-stat # not installed because wheel dependencies is broken
+    #   This is the fix git+https://github.com/alexrkv/gap_statistic.git@fix-no-module-wheel
     - nbopen
     - opencv-python
     - otter-grader>=6.1
