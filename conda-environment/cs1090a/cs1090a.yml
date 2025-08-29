@@ -32,3 +32,4 @@ dependencies:
     - opencv-python
     - otter-grader>=6.1
     - jupyterlab-vim
+    - tensorflow_datasets
