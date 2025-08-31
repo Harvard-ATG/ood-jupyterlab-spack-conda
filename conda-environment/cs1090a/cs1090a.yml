@@ -1,0 +1,35 @@
+name: cs1090a
+
+channels:
+- conda-forge
+
+dependencies:
+  - aiohttp 
+  - arviz 
+  - beautifulsoup4 
+  - imageio 
+  - ipython 
+  - jupyterlab 
+  - lxml 
+  - matplotlib>=3.10 
+  - numpy
+  - openpyxl 
+  - pandas 
+  - pillow 
+  - pip 
+  - pyarrow 
+  - python>=3.10
+  - requests 
+  - scikit-learn>=1.7 
+  - scipy>=1.6 
+  - seaborn 
+  - selenium 
+  - statsmodels
+  - pip:
+    # - gap-stat # not installed because wheel dependencies is broken
+    #   This is the fix git+https://github.com/alexrkv/gap_statistic.git@fix-no-module-wheel
+    - nbopen
+    - opencv-python
+    - otter-grader>=6.1
+    - jupyterlab-vim
+    - tensorflow_datasets
