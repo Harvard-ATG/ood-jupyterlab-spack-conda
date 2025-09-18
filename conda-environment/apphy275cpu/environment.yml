@@ -1,4 +1,4 @@
-name: apphy275
+name: apphy275cpu
 
 channels:
 - conda-forge
