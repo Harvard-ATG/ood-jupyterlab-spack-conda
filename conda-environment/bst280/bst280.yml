@@ -1,0 +1,17 @@
+name: jupyter
+
+channels:
+- conda-forge
+- netzoo
+
+dependencies:
+- jupyterlab
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scipy
+- pip
+- python>=3.10
+- requests
+- netzoopy
