@@ -87,7 +87,8 @@ attributes:
   spack: "epi293"
 
   # Conda environment to activate from inside the Spack environment
-  conda: "epi293"
+  # conda: "epi293"
+  mamba: "jupyter"
 
   # Which queue to submit to. Usually `general` is the best choice, unless this 
   # app is configured for a specific EC2 instance type, like an instance type 
@@ -137,7 +138,7 @@ attributes:
 form:
   - course
   - spack
-  - conda
+  - mamba
   - environment
   - bc_queue
   - extra_jupyter_args
