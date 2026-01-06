@@ -20,18 +20,16 @@ if [[ "<%= context.environment %>" == "course" ]]; then
     # spack_root="/shared/courseSharedFolders/<%= context.course %>outer/<%= context.course %>/spack"
     spack_root="/shared/spack"
     spack_environment="<%= context.spack %>"
-    # conda_environment="<%= context.conda %>"
-    # conda_environment="/shared/courseSharedFolders/<%= context.course %>outer/<%= context.course %>/<%= context.conda %>"
     mamba_environment="/shared/courseSharedFolders/<%= context.course %>outer/<%= context.course %>/<%= context.mamba %>"
     # Check user access to conda environment
-    # echo "Running ls on $conda_environment to check permissions"
+    
     echo "Running ls on $mamba_environment to check permissions"
-    # ls $conda_environment
+    
     ls $mamba_environment
 else
     spack_root="/shared/spack"
     spack_environment="<%= context.spack %>"
-    # conda_environment="<%= context.conda %>"
+    
     mamba_environment="<%= context.mamba %>"
 fi
 
@@ -56,11 +54,10 @@ spack find
 log "Starting jupyter..."
 
 # Activate conda environment
-# log "Loading conda environment: $conda_environment"
+
 log "Loading mamba environment: $mamba_environment"
 set -x
-# eval "$(command conda 'shell.bash' 'hook' 2> /dev/null)"
-# conda activate $conda_environment
+
 # Initialize mamba
 eval "$(mamba shell hook --shell bash)"
 mamba activate $mamba_environment
