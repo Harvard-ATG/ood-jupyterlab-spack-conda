@@ -84,10 +84,11 @@ attributes:
   course: "165993"
 
   # Spack environment to activate, regardless of which Spack installation is in use.
-  spack: "epi293"
+  spack: "mamba"
 
   # Conda environment to activate from inside the Spack environment
-  conda: "epi293"
+  # conda: "epi293"
+  mamba: "jupyter"
 
   # Which queue to submit to. Usually `general` is the best choice, unless this 
   # app is configured for a specific EC2 instance type, like an instance type 
@@ -99,7 +100,7 @@ attributes:
   # installation and a spack installation in the course shared folder. If the 
   # course has no intention of managing their own Spack environments, this can 
   # be hard-coded to "global".
-  environment: "course"
+  environment: "global"
 
   # How many GPU GRES resources to include in the job submission.
   custom_num_gpus: 0
@@ -137,7 +138,7 @@ attributes:
 form:
   - course
   - spack
-  - conda
+  - mamba
   - environment
   - bc_queue
   - extra_jupyter_args
