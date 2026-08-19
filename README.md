@@ -1,5 +1,8 @@
 # Batch Connect - Jupyter Lab Server
 
+> [!Warning]
+> Archived repository. This implementation has been archived in favor of using `mamba`. The successor application repository is at https://github.com/Harvard-ATG/ood-jupyterlab-spack-mamba
+
 This repository contains an implementation of an Open OnDemand app that serves a Jupyter Lab environment using spack to manage software dependencies. It is built to run in the AWS Parallel Cluster environment managed by Harvard University IT Academic Technology.
 
 The repository is based on the [example Jupyter app](https://github.com/OSC/bc_example_jupyter) provided by OSC.
